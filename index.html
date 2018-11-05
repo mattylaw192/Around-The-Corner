@@ -5,12 +5,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Around-The-Corner</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/style.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="assets/project1.js"></script>
 </head>
 <body>
-    <h1>Hellow World - we're just Around-The-Corner! </h1>
-    <h1>Dinah was here</h1>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">DJ Chef</h1>
+            <h5>Become a master chef and DJ in minutes!</h5>
 
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4>What type of dish are you interested in making?</h4>
+                <h6>This will narrow your job search to a specific location.</h6>
+
+                <div id="buttons"></div>
+                <!--<button type="button" class="btn btn-primary" id="american">American Dishes</button>
+                <button type="button" class="btn btn-primary" id="italian">Italian Dishes</button>
+                <button type="button" class="btn btn-primary" id="chinese">Chinese Dishes</button>
+                <button type="button" class="btn btn-primary" id="jamaican">Jamaican</button>
+                <button type="button" class="btn btn-danger" id="random">Random!</button>-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" id="meal-list">
+
+            </div>
+        </div>
+    </div>
+
+<!-- 
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Choose Your Development Path</h4>
+                <h6>What type of dev career do you want to focus on?</h6>
+            </div>
+            <div class="col-md-12">
+                <form>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="frontEndBtn" value="Front-End"
+                            checked>
+                        <label class="form-check-label" for="frontEndBtn">
+                            Front-End Development
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="backEndBtn" value="Back-End">
+                        <label class="form-check-label" for="backEndBtn">
+                            Back-End Development
+                        </label>
+                    </div>
+                    <div class="form-check disabled">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="fullStackBtn" value="Full-Stack">
+                        <label class="form-check-label" for="fullStackBtn">
+                            Full-Stack Development
+                        </label>
+                    </div>
+                    <br>
+                    <div class="col-md-4">
+                        <form class="form-inline">
+
+                            <div class="form-group mx-sm-3 mb-2">
+                                <h6>Required Salary</h6>
+                                <label for="requiredSalary" class="sr-only">Required Salary</label>
+                                <input type="text" class="form-control" id="requiredSalary" placeholder="Ex: $40,000">
+
+                                <button type="submit" class="btn btn-primary mb-2">Generate Job Listings</button>
+                            </div>
+                        </form>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> -->
 </body>
 </html>
