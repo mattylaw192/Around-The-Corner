@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="..//Around-The-Corner/assets/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="..//Around-The-Corner/assets/project1.js"></script>
-    
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
 
@@ -27,6 +27,23 @@
     </div>
 
     <div class="container">
+
+        <!-- Delayed Pop up window -->
+        <div id="delayedPopup" class="delayedPopupWindow">
+            <a href="#" id="btnClose" title="Click here to close">[X]</a>
+            <div class="popupDescription">
+                <h2>Want a weekly bonus recipe?</h2>
+                <p>Sign up for our recipe alert and get unique recipes emailed weekly!</p>
+                <form>
+                    <div class="form-group">
+                        <label for="emailInput">Email Address</label>
+                        <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp"
+                            placeholder="Enter Email Address">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-12">
@@ -47,7 +64,7 @@
         </div>
     </div>
 
-<!-- 
+    <!-- 
 
 
     <div class="container">
