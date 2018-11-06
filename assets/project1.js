@@ -1,3 +1,21 @@
+$(document).ready(function()
+{
+  $("#delayedPopup").delay(5000).fadeIn(400);
+
+  $("#btnClose").click(function(e)
+  {
+    HideDialog();
+    e.preventDefault();
+  });
+});
+
+function HideDialog()
+{
+	$("#bkgOverlay").fadeOut(400);
+	$("#delayedPopup").fadeOut(300);
+}
+
+
 var url = "https://www.themealdb.com/api/json/v1/1/list.php?a=list";
 $.ajax({
   url: url,
@@ -41,3 +59,4 @@ function buttonClick(event) {
     }
   });
 }
+
