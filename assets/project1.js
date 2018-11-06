@@ -1,4 +1,12 @@
-$(document).ready(function () {
+$(document).ready(function()
+{
+  $("#delayedPopup").delay(5000).fadeIn(400);
+
+  $("#btnClose").click(function(e)
+  {
+    HideDialog();
+    e.preventDefault();
+  });
   $('.area-button').on('click', function (event) {
     event.preventDefault();
     $('#meal-list').empty();
@@ -26,3 +34,9 @@ $(document).ready(function () {
     });
   })
 });
+
+function HideDialog()
+{
+	$("#bkgOverlay").fadeOut(400);
+	$("#delayedPopup").fadeOut(300);
+}
