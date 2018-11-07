@@ -71,6 +71,13 @@ function mealLink(event) {
       img.attr('src', meal.strMealThumb);
       img.attr('style', 'width: 100px;');
       $('#meal-list').append(img);
+
+      // trying to get youtube video to show 
+      // appendMealPropertyvideo(meal.strMeal);
+      // var video = $("<object>");
+      // video.attr('data',meal.strYoutube);
+      // video.attr('style','width="560" height="315";')
+      
       if (meal.strIngredient1 !== '') {
         appendMealProperty(meal.strMeasure1 + ' ' + meal.strIngredient1);
       }
@@ -133,6 +140,13 @@ function mealLink(event) {
       }
       appendMealProperty(meal.strInstructions);
 
+      var videoId = getId(meal.strYoutube);
+      var iframeMarkup = '<br> <iframe id = "videoinstructions" width="100%" height="315" src="https://www.youtube.com/embed/' 
+  + videoId + '" frameborder="0" allowfullscreen></iframe>';
+      appendMealProperty(iframeMarkup);
+      // working example 
+      // appendMealProperty(`<iframe width="560" height="315" src="https://www.youtube.com/embed/qCIbq8HywpQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`);
+
     }
   });
 }
@@ -143,5 +157,25 @@ function appendMealProperty(text) {
   $('#meal-list').append(div);
 }
 
+
+function getId(url) {
+  var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  var match = url.match(regExp);
+
+  if (match && match[2].length == 11) {
+      return match[2];
+  } else {
+      return 'error';
+  }
+}
+
+
+
+// function appendMealPropertyvideo(video){
+//   var vid = $('<video>');
+//   div.html(video);
+//   $('#video-list').append(vid);
+// }
+  
 
 
