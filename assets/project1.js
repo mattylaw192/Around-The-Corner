@@ -32,8 +32,23 @@ $(document).ready(function () {
         });
       }
     });
-  })
+
+    $('#musicPlaylist').empty();
+    var musicUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=' + $(this).attr('data-area') + "&api_key=fdf5816d83b3befdc209e60006096e96&format=json";
+    console.log(this);
+    $.ajax({
+      url: musicUrl,
+      method: 'GET',
+      success: function (response) {
+        console.log(response);
+        $('#musicPlaylist').empty();
+        var music = response.topartists.artist[0];
+      }
+    });
+  });
+
 });
+
 
 function HideDialog() {
   $("#bkgOverlay").fadeOut(400);
@@ -127,3 +142,6 @@ function appendMealProperty(text) {
   div.html(text);
   $('#meal-list').append(div);
 }
+
+
+
