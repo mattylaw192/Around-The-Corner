@@ -1,10 +1,38 @@
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyBGsSTyDhAcqQNN_CADkFpdgjBrpQrrbcQ",
+  authDomain: "project-1-b1dff.firebaseapp.com",
+  databaseURL: "https://project-1-b1dff.firebaseio.com",
+  projectId: "project-1-b1dff",
+  storageBucket: "project-1-b1dff.appspot.com",
+  messagingSenderId: "923265362571"
+};
+
+
+
+
 $(document).ready(function () {
   $("#delayedPopup").delay(5000).fadeIn(400);
 
   $("#btnClose").click(function (e) {
     HideDialog();
-    e.preventDefault();
+    e.preventDefault();    
   });
+  
+
+  $("#submitEmail").click(function (a){
+    HideDialog();
+    a.preventDefault(); 
+    var emailAddress = $("#emailInput").val();
+    var contactInfo = {
+      email: emailAddress
+    };
+    var database = firebase.database();
+    database.ref().push(contactInfo);
+  });
+  firebase.initializeApp(config);
+
+  
   $('.area-button').on('click', function (event) {
     event.preventDefault();
     $('#meal-list').empty();
