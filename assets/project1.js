@@ -33,16 +33,22 @@ $(document).ready(function () {
       }
     });
 
-    $('#musicPlaylist').empty();
-    var musicUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=' + $(this).attr('data-area') + "&api_key=fdf5816d83b3befdc209e60006096e96&format=json";
+   
+    var musicUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=' + $(this).attr('data-area') + "&api_key=fdf5816d83b3befdc209e60006096e96&format=json";
     console.log(this);
+    
     $.ajax({
       url: musicUrl,
       method: 'GET',
       success: function (response) {
         console.log(response);
-        $('#musicPlaylist').empty();
-        var music = response.topartists.artist[0];
+        var randomArray = response.tracks.track[Math.floor(Math.random() * response.tracks.track.length)];
+        console.log(randomArray);
+       $("#artistName").text(randomArray.artist.name);
+       $("#songName").text(randomArray.name);
+       $("#artistURL").text(randomArray.url);
+       $("#albumArt").attr("src", randomArray.image[1]["#text"]);
+
       }
     });
   });
