@@ -61,10 +61,10 @@ $(document).ready(function () {
       }
     });
 
-   
+
     var musicUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=' + $(this).attr('data-area') + "&api_key=fdf5816d83b3befdc209e60006096e96&format=json";
     console.log(this);
-    
+
     $.ajax({
       url: musicUrl,
       method: 'GET',
@@ -72,15 +72,23 @@ $(document).ready(function () {
         console.log(response);
         var randomArray = response.tracks.track[Math.floor(Math.random() * response.tracks.track.length)];
         console.log(randomArray);
-       $("#artistName").text(randomArray.artist.name);
-       $("#songName").text(randomArray.name);
-       $("#artistURL").text(randomArray.url);
-       $("#albumArt").attr("src", randomArray.image[1]["#text"]);
-
+        $("#artistName").text(randomArray.artist.name);
+        $("#songName").text(randomArray.name);
+        $("#artistURL").text(randomArray.url);
+        $("#albumArt").attr("src", randomArray.image[1]["#text"]);
+        var tr = $('<tr>');
+        var tdArtistName = $('<td>').html(randomArray.artist.name);
+        var tdSongName = $('<td>').html(randomArray.name);
+        var tdArtistUrl = $('<td>').html(randomArray.url);
+        var tdAlbumArt = $('<td>').html(randomArray.image[1]["#text"]);
+        tr.append(tdArtistName);
+        tr.append(tdSongName);
+        tr.append(tdArtistUrl);
+        //tr.append(tdAlbumArt);
+        $('#music_table').append(tr);
       }
     });
   });
-
 });
 
 
@@ -111,7 +119,7 @@ function mealLink(event) {
       // var video = $("<object>");
       // video.attr('data',meal.strYoutube);
       // video.attr('style','width="560" height="315";')
-      
+
       if (meal.strIngredient1 !== '') {
         appendMealProperty(meal.strMeasure1 + ' ' + meal.strIngredient1);
       }
@@ -175,8 +183,8 @@ function mealLink(event) {
       appendMealProperty(meal.strInstructions);
 
       var videoId = getId(meal.strYoutube);
-      var iframeMarkup = '<br> <iframe id = "videoinstructions" width="100%" height="315" src="https://www.youtube.com/embed/' 
-  + videoId + '" frameborder="0" allowfullscreen></iframe>';
+      var iframeMarkup = '<br> <iframe id = "videoinstructions" width="100%" height="315" src="https://www.youtube.com/embed/'
+        + videoId + '" frameborder="0" allowfullscreen></iframe>';
       appendMealProperty(iframeMarkup);
       // working example 
       // appendMealProperty(`<iframe width="560" height="315" src="https://www.youtube.com/embed/qCIbq8HywpQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`);
@@ -197,12 +205,26 @@ function getId(url) {
   var match = url.match(regExp);
 
   if (match && match[2].length == 11) {
-      return match[2];
+    return match[2];
   } else {
-      return 'error';
+    return 'error';
   }
 }
 
+$(document).ready(function () {
+  $.getJSON("music.json", function (data) {
+    var music_data = '';
+    $.each(data, function (key, value) {
+      music_data += '<tr>';
+      music_data += '<td>' + value.musicArtist + '</td>';
+      music_data += '<td>' + value.musicName + '</td>';
+      music_data += '<td>' + value.CoverImage + '</td>';
+      music_data += '</tr>';
+    });
+    $('#music_table').append(music_data);
+
+  });
+});
 
 
 // function appendMealPropertyvideo(video){
@@ -210,6 +232,6 @@ function getId(url) {
 //   div.html(video);
 //   $('#video-list').append(vid);
 // }
-  
+
 
 
