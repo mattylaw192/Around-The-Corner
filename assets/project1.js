@@ -43,6 +43,8 @@ $(document).ready(function () {
       success: function (response) {
         $.each(response.meals, function (index, value) {
           var display = $("<div>");
+          display.addClass("mealImage");
+          display.addClass("col-md-4");
           var anchor = $("<a>");
           anchor.attr('href', '#');
           anchor.attr('data-id', value.idMeal);
@@ -53,7 +55,7 @@ $(document).ready(function () {
           image.attr('src', value.strMealThumb);
           anchor.append(image);
           display.append(anchor);
-          var text = $("<h2>");
+          var text = $("<p>");
           text.html(value.strMeal);
           display.append(text);
           $('#meal-list').append(display);

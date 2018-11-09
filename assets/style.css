@@ -63,3 +63,8 @@
    color: rgb(214, 48, 56);
    margin-left: 200px;
 }
+
+.mealImage {
+    display: inline-block;
+   
+}
