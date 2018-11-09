@@ -43,6 +43,8 @@ $(document).ready(function () {
       success: function (response) {
         $.each(response.meals, function (index, value) {
           var display = $("<div>");
+          display.addClass("mealImage");
+          display.addClass("col-md-4");
           var anchor = $("<a>");
           anchor.attr('href', '#');
           anchor.attr('data-id', value.idMeal);
@@ -53,7 +55,7 @@ $(document).ready(function () {
           image.attr('src', value.strMealThumb);
           anchor.append(image);
           display.append(anchor);
-          var text = $("<h2>");
+          var text = $("<p>");
           text.html(value.strMeal);
           display.append(text);
           $('#meal-list').append(display);
@@ -75,13 +77,18 @@ $(document).ready(function () {
         // $("#artistName").text(randomArray.artist.name);
         // $("#songName").text(randomArray.name);
         // $("#artistURL").text(randomArray.url);
-        // $("#albumArt").attr("src", randomArray.image[1]["#text"]);
+        $(".albumArt").attr("src", randomArray.image[1]["#text"]);
         var tr = $('<tr>');
         var tdArtistName = $('<td>').html(randomArray.artist.name);
         var tdSongName = $('<td>').html(randomArray.name);
         var tdArtistUrl = $('<td>').html(randomArray.url);
-        var tdAlbumArt = $('<td>').html(randomArray.image[1]["#text"]);
+        var tdAlbumArt = $('<td>');
+        var albumArtImg = $("<img>");
+        albumArtImg.attr("src",randomArray.image[1]["#text"]);
+        tdAlbumArt.append(albumArtImg);
+     
         tr.append(tdArtistName);
+        tr.append(tdAlbumArt);
         tr.append(tdSongName);
         tr.append(tdArtistUrl);
         //tr.append(tdAlbumArt);

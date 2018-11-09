@@ -64,6 +64,7 @@
    margin-left: 200px;
 }
 
+
 .container {
 	background: white;
 	width: 50%;
@@ -77,4 +78,10 @@
 	
 }
 
+
+
+.mealImage {
+    display: inline-block;
+   
+}
 
