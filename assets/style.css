@@ -25,3 +25,41 @@
 #videoinstructions {
 	border: 4px solid blue;
 }
+
+.polymorph {
+    fill:rgb(214, 48, 56);
+    padding: 10px 20px;
+    margin-left: -260px;
+    margin-top: -180px;
+    /* position:absolute; */
+    z-index: -1;
+   }
+   
+   .testbox {
+       margin: auto;
+       width: 700px;
+       z-index: -1;
+   }
+
+#reveal {
+   position: absolute;
+   margin: 10em auto 0 auto;
+   left: 0;
+   right: 0; 
+   width: 30%;
+   background: none;
+   border: 1px solid white;
+   border-radius: 5px;
+   padding: 15px; 
+   color: white;
+   font-size: 1.5em;
+   outline: 0;
+}
+
+#rtext {
+   position: absolute;
+   text-align: center;
+   text-indent: 30px;
+   color: rgb(214, 48, 56);
+   margin-left: 200px;
+}

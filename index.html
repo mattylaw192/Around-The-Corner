@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
 
-   
+
 </head>
 
 
@@ -26,6 +26,44 @@
 
         </div>
     </div>
+    <div class="testbox">
+        <div>
+            <button id="reveal">Click for Directions</button>
+        </div>
+        <div id="rtext">
+            <h1> DJ Chef</h1>
+            <p>Become a master chef and DJ in minutes!</p>
+            <p>Click the Dish culture to reveal directions</p>
+            <p>Then scroll Below for some great music for cooking!</p>
+        </div>
+
+        <svg viewBox="0 10 215 110">
+            <polygon class="polymorph" points="285, 110 0, 110 0, 0 47.7, 0 285,0  " />
+
+        </svg>
+    </div>
+    <script src="./assets/anime.min.js"></script>
+
+    <script>
+
+        var reveal = document.getElementById("reveal");
+
+        reveal.onclick = function () {
+            var morphing = anime({
+                targets: ' .polymorph',
+                points: [
+                    { value: '215, 110 0, 110 0, 0 47.7, 0 67,76 ' },
+                ],
+                easing: 'easeOutQuad',
+                duration: 4500,
+                loop: false
+            });
+
+
+
+        }
+
+    </script>
 
     <div class="container">
 
@@ -76,16 +114,16 @@
     </div>
 
 
-    <div class = "container">
-        <div class = "table-repsonsive">
-            <table class= "table table-bordered table-striped" id= "music_table">
-            <tr>
-                <th>Artist</th>
-                <th>Song Name</th>
-                <th>Cover Image</th>
-            </tr>
-        </table>
-     </div>
+    <div class="container">
+        <div class="table-repsonsive">
+            <table class="table table-bordered table-striped" id="music_table">
+                <tr>
+                    <th>Artist</th>
+                    <th>Song Name</th>
+                    <th>Cover Image</th>
+                </tr>
+            </table>
+        </div>
 
 </body>
 </div>
