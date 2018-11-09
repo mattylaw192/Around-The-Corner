@@ -18,21 +18,24 @@
 
 
 
-<body background="assets/Background1.jpg"
+<body background="assets/Background1.jpg">
 
     <div class="container">
-        <div class="jumbotron">
-            <h1 class="display-4">DJ Chef</h1>
-            <h5>Become a master chef and DJ in minutes!</h5>
+       <div class="jumbotron">  
+        <div class="float-left"><img src="assets/images/DJicon.svg" height=100 width=100></div>
+        <div class="float-left"><h1 class="display-4">DJ Chef</h1></div>
+           </div>
 
-        </div>
-    </div>
+        
+   
+   
+    <!-- <div class="container1"> -->
     <div class="testbox">
         <div>
             <button id="reveal">Click for Directions</button>
         </div>
         <div id="rtext">
-            <h1> DJ Chef</h1>
+            <!-- <h1> DJ Chef</h1> -->
             <p>Become a master chef and DJ in minutes!</p>
             <p>Click the Dish culture to reveal directions</p>
             <p>Then scroll Below for some great music for cooking!</p>
@@ -43,6 +46,7 @@
 
         </svg>
     </div>
+
     <script src="./assets/anime.min.js"></script>
 
     <script>
@@ -65,6 +69,7 @@
         }
 
     </script>
+   
 
     <div class="container">
 
@@ -88,7 +93,8 @@
         <div class="row">
             <div class="col-md-12">
                 <h4>What type of dish are you interested in making?</h4>
-                <h6>This will narrow your job search to a specific location.</h6>
+                <br>
+                <br>
 
                 <button type="button" class="btn btn-primary area-button" data-area="american">American Dishes</button>
                 <button type="button" class="btn btn-primary area-button" data-area="italian">Italian Dishes</button>
@@ -97,17 +103,19 @@
                 <button type="button" class="btn btn-primary area-button" data-area="mexican">Mexican</button>
             </div>
         </div>
+        <br>
+        <br>
         <div class="row">
             <div class="col-md-12" id="meal-list">
             </div>
         </div>
 
     </div>
-  
+
 
 
     <div class="container">
-        <div class="table-repsonsive">
+        <div class="table-responsive">
             <table class="table table-bordered table-striped" id="music_table">
                 <tr>
                     <th>Artist</th>

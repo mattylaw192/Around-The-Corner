@@ -64,7 +64,24 @@
    margin-left: 200px;
 }
 
+
+.container {
+	background: white;
+	width: 50%;
+	padding: 10px;
+	
+}
+
+.jumbotron {
+	background-color: transparent;
+	height: 200px;
+	
+}
+
+
+
 .mealImage {
     display: inline-block;
    
 }
+
