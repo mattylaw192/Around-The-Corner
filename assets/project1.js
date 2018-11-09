@@ -212,6 +212,7 @@ function getId(url) {
 }
 
 $(document).ready(function () {
+  $('#music_table').empty(); 
   $.getJSON("music.json", function (data) {
     var music_data = '';
     $.each(data, function (key, value) {
