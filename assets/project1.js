@@ -12,7 +12,7 @@ var config = {
 
 
 $(document).ready(function () {
-  $("#delayedPopup").delay(5000).fadeIn(400);
+  $("#delayedPopup").delay(10000).fadeIn(400);
 
   $("#btnClose").click(function (e) {
     HideDialog();
@@ -72,10 +72,10 @@ $(document).ready(function () {
         console.log(response);
         var randomArray = response.tracks.track[Math.floor(Math.random() * response.tracks.track.length)];
         console.log(randomArray);
-        $("#artistName").text(randomArray.artist.name);
-        $("#songName").text(randomArray.name);
-        $("#artistURL").text(randomArray.url);
-        $("#albumArt").attr("src", randomArray.image[1]["#text"]);
+        // $("#artistName").text(randomArray.artist.name);
+        // $("#songName").text(randomArray.name);
+        // $("#artistURL").text(randomArray.url);
+        // $("#albumArt").attr("src", randomArray.image[1]["#text"]);
         var tr = $('<tr>');
         var tdArtistName = $('<td>').html(randomArray.artist.name);
         var tdSongName = $('<td>').html(randomArray.name);
