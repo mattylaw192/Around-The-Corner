@@ -12,7 +12,7 @@ var config = {
 
 
 $(document).ready(function () {
-  $("#delayedPopup").delay(5000).fadeIn(400);
+  $("#delayedPopup").delay(10000).fadeIn(400);
 
   $("#btnClose").click(function (e) {
     HideDialog();
@@ -43,6 +43,8 @@ $(document).ready(function () {
       success: function (response) {
         $.each(response.meals, function (index, value) {
           var display = $("<div>");
+          display.addClass("mealImage");
+          display.addClass("col-md-4");
           var anchor = $("<a>");
           anchor.attr('href', '#');
           anchor.attr('data-id', value.idMeal);
@@ -53,7 +55,7 @@ $(document).ready(function () {
           image.attr('src', value.strMealThumb);
           anchor.append(image);
           display.append(anchor);
-          var text = $("<h2>");
+          var text = $("<p>");
           text.html(value.strMeal);
           display.append(text);
           $('#meal-list').append(display);
@@ -72,16 +74,21 @@ $(document).ready(function () {
         console.log(response);
         var randomArray = response.tracks.track[Math.floor(Math.random() * response.tracks.track.length)];
         console.log(randomArray);
-        $("#artistName").text(randomArray.artist.name);
-        $("#songName").text(randomArray.name);
-        $("#artistURL").text(randomArray.url);
-        $("#albumArt").attr("src", randomArray.image[1]["#text"]);
+        // $("#artistName").text(randomArray.artist.name);
+        // $("#songName").text(randomArray.name);
+        // $("#artistURL").text(randomArray.url);
+        $(".albumArt").attr("src", randomArray.image[1]["#text"]);
         var tr = $('<tr>');
         var tdArtistName = $('<td>').html(randomArray.artist.name);
         var tdSongName = $('<td>').html(randomArray.name);
         var tdArtistUrl = $('<td>').html(randomArray.url);
-        var tdAlbumArt = $('<td>').html(randomArray.image[1]["#text"]);
+        var tdAlbumArt = $('<td>');
+        var albumArtImg = $("<img>");
+        albumArtImg.attr("src",randomArray.image[1]["#text"]);
+        tdAlbumArt.append(albumArtImg);
+     
         tr.append(tdArtistName);
+        tr.append(tdAlbumArt);
         tr.append(tdSongName);
         tr.append(tdArtistUrl);
         //tr.append(tdAlbumArt);
@@ -212,6 +219,7 @@ function getId(url) {
 }
 
 $(document).ready(function () {
+  $('#music_table').empty(); 
   $.getJSON("music.json", function (data) {
     var music_data = '';
     $.each(data, function (key, value) {
