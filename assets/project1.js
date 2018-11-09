@@ -62,7 +62,7 @@ $(document).ready(function () {
     });
 
 
-    var musicUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=' + $(this).attr('data-area') + "&api_key=fdf5816d83b3befdc209e60006096e96&format=json";
+    var musicUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=' + $(this).attr('data-area') + "&api_key=fdf5816d83b3befdc209e60006096e96&limit=5&format=json";
     console.log(this);
 
     $.ajax({
@@ -224,6 +224,18 @@ $(document).ready(function () {
     $('#music_table').append(music_data);
 
   });
+
+  // footer reset button; 
+var footer = document.getElementById('footerbtn');
+
+  footer.onclick = function(){
+    location.reload();
+  };
+
+  // $('footer').on(click, function(){
+  //   location.reload();
+  //   console.log(5);
+  // })
 });
 
 

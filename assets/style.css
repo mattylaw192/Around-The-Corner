@@ -63,3 +63,23 @@
    color: rgb(214, 48, 56);
    margin-left: 200px;
 }
+
+/* footer {
+	position: fixed;
+    left: 0;
+	bottom: 0;
+	height: 20px;
+    width: 100%;
+    background-color: gray;
+    color: gray;
+    text-align: center;
+} */
+ #footerbtn {
+	position: absolute;;
+	margin-left: 250px;
+	margin-right: 250px;
+	color: blue;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	
+ }
