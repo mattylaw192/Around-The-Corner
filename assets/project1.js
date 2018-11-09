@@ -75,13 +75,18 @@ $(document).ready(function () {
         // $("#artistName").text(randomArray.artist.name);
         // $("#songName").text(randomArray.name);
         // $("#artistURL").text(randomArray.url);
-        // $("#albumArt").attr("src", randomArray.image[1]["#text"]);
+        $(".albumArt").attr("src", randomArray.image[1]["#text"]);
         var tr = $('<tr>');
         var tdArtistName = $('<td>').html(randomArray.artist.name);
         var tdSongName = $('<td>').html(randomArray.name);
         var tdArtistUrl = $('<td>').html(randomArray.url);
-        var tdAlbumArt = $('<td>').html(randomArray.image[1]["#text"]);
+        var tdAlbumArt = $('<td>');
+        var albumArtImg = $("<img>");
+        albumArtImg.attr("src",randomArray.image[1]["#text"]);
+        tdAlbumArt.append(albumArtImg);
+     
         tr.append(tdArtistName);
+        tr.append(tdAlbumArt);
         tr.append(tdSongName);
         tr.append(tdArtistUrl);
         //tr.append(tdAlbumArt);
