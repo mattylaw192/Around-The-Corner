@@ -92,7 +92,7 @@ function mealLink(event) {
         method: 'GET',
         success: function (response) {
           console.log(response);
-          
+
           $.each(response.tracks.track, function (index, value) {
             $(".albumArt").attr("src", value.image[1]["#text"]);
             var tr = $('<tr>');
@@ -217,18 +217,6 @@ function getId(url) {
 
 $(document).ready(function () {
   $('#music_table').empty();
-  $.getJSON("music.json", function (data) {
-    var music_data = '';
-    $.each(data, function (key, value) {
-      music_data += '<tr>';
-      music_data += '<td>' + value.musicArtist + '</td>';
-      music_data += '<td>' + value.musicName + '</td>';
-      music_data += '<td>' + value.CoverImage + '</td>';
-      music_data += '</tr>';
-    });
-    $('#music_table').append(music_data);
-
-  });
 
   // footer reset button; 
   var footer = document.getElementById('footerbtn');
@@ -236,19 +224,4 @@ $(document).ready(function () {
   footer.onclick = function () {
     location.reload();
   };
-
-  // $('footer').on(click, function(){
-  //   location.reload();
-  //   console.log(5);
-  // })
 });
-
-
-// function appendMealPropertyvideo(video){
-//   var vid = $('<video>');
-//   div.html(video);
-//   $('#video-list').append(vid);
-// }
-
-
-
