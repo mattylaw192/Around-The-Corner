@@ -16,13 +16,13 @@ $(document).ready(function () {
 
   $("#btnClose").click(function (e) {
     HideDialog();
-    e.preventDefault();    
+    e.preventDefault();
   });
-  
 
-  $("#submitEmail").click(function (a){
+
+  $("#submitEmail").click(function (a) {
     HideDialog();
-    a.preventDefault(); 
+    a.preventDefault();
     var emailAddress = $("#emailInput").val();
     var contactInfo = {
       email: emailAddress
@@ -32,7 +32,7 @@ $(document).ready(function () {
   });
   firebase.initializeApp(config);
 
-  
+
   $('.area-button').on('click', function (event) {
     event.preventDefault();
     $('#meal-list').empty();
@@ -63,38 +63,6 @@ $(document).ready(function () {
       }
     });
 
-
-    var musicUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=' + $(this).attr('data-area') + "&api_key=fdf5816d83b3befdc209e60006096e96&limit=5&format=json";
-    console.log(this);
-
-    $.ajax({
-      url: musicUrl,
-      method: 'GET',
-      success: function (response) {
-        console.log(response);
-        var randomArray = response.tracks.track[Math.floor(Math.random() * response.tracks.track.length)];
-        console.log(randomArray);
-        // $("#artistName").text(randomArray.artist.name);
-        // $("#songName").text(randomArray.name);
-        // $("#artistURL").text(randomArray.url);
-        $(".albumArt").attr("src", randomArray.image[1]["#text"]);
-        var tr = $('<tr>');
-        var tdArtistName = $('<td>').html(randomArray.artist.name);
-        var tdSongName = $('<td>').html(randomArray.name);
-        var tdArtistUrl = $('<td>').html(randomArray.url);
-        var tdAlbumArt = $('<td>');
-        var albumArtImg = $("<img>");
-        albumArtImg.attr("src",randomArray.image[1]["#text"]);
-        tdAlbumArt.append(albumArtImg);
-     
-        tr.append(tdArtistName);
-        tr.append(tdAlbumArt);
-        tr.append(tdSongName);
-        tr.append(tdArtistUrl);
-        //tr.append(tdAlbumArt);
-        $('#music_table').append(tr);
-      }
-    });
   });
 });
 
@@ -114,6 +82,35 @@ function mealLink(event) {
       console.log(response);
       $('#meal-list').empty();
       var meal = response.meals[0];
+
+
+      var musicUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=' + meal.strArea + "&api_key=fdf5816d83b3befdc209e60006096e96&limit=5&format=json";
+      console.log(this);
+
+      $.ajax({
+        url: musicUrl,
+        method: 'GET',
+        success: function (response) {
+          console.log(response);
+          
+          $.each(response.tracks.track, function (index, value) {
+            $(".albumArt").attr("src", value.image[1]["#text"]);
+            var tr = $('<tr>');
+            var tdArtistName = $('<td>').html(value.artist.name);
+            var tdSongName = $('<td>').html(value.name);
+            var tdArtistUrl = $('<td>').html(value.url);
+            var tdAlbumArt = $('<td>');
+            var albumArtImg = $("<img>");
+            albumArtImg.attr("src", value.image[1]["#text"]);
+            tdAlbumArt.append(albumArtImg);
+            tr.append(tdArtistName);
+            tr.append(tdAlbumArt);
+            tr.append(tdSongName);
+            tr.append(tdArtistUrl);
+            $('#music_table').append(tr);
+          });
+        }
+      });
 
       appendMealProperty(meal.strMeal);
       var img = $("<img>");
@@ -219,7 +216,7 @@ function getId(url) {
 }
 
 $(document).ready(function () {
-  $('#music_table').empty(); 
+  $('#music_table').empty();
   $.getJSON("music.json", function (data) {
     var music_data = '';
     $.each(data, function (key, value) {
@@ -234,9 +231,9 @@ $(document).ready(function () {
   });
 
   // footer reset button; 
-var footer = document.getElementById('footerbtn');
+  var footer = document.getElementById('footerbtn');
 
-  footer.onclick = function(){
+  footer.onclick = function () {
     location.reload();
   };
 
