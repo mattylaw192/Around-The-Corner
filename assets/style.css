@@ -27,7 +27,8 @@
 }
 
 .polymorph {
-    fill:rgb(214, 48, 56);
+	/* fill:rgb(214, 48, 56); */
+	fill: #6471a8;
     padding: 10px 20px;
     margin-left: -260px;
     margin-top: -180px;
@@ -60,7 +61,8 @@
    position: absolute;
    text-align: center;
    text-indent: 30px;
-   color: rgb(214, 48, 56);
+   /* color: rgb(214, 48, 56); */
+   color: #6471a8;
    margin-left: 200px;
 }
 
@@ -90,13 +92,20 @@
 	background: white;
 	width: 50%;
 	padding: 10px;
+	margin-top: 40px;
 	
 }
 
 .jumbotron {
-	background-color: transparent;
+	background-color: white;
 	height: 200px;
+	background: none;
 	
+	
+}
+
+#h4 {
+	text-align: center;
 }
 
 
@@ -104,6 +113,11 @@
 .mealImage {
     display: inline-block;
    
+}
+
+.spicy-rice {
+	font-family: 'Spicy Rice', cursive;
+	font-size-adjust: 100 px;
 }
 
 
