@@ -84,7 +84,7 @@ function mealLink(event) {
       var meal = response.meals[0];
 
 
-      var musicUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=' + meal.strArea + "&api_key=c909ff1bf1b67f3fe92c64b820546737&limit=5&format=json";
+      var musicUrl = 'http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag=' + meal.strArea + "&api_key=c174dc486e1f2a8cf0dad94964cc2635&limit=5&format=json";
       console.log(this);
 
       $.ajax({
